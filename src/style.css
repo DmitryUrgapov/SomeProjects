@@ -1,0 +1,71 @@
+/* вёрстка завязана на пикселях, поскольку у иконок размер в пикселях, и он неизменен */
+/* для адаптивности можно использовать media-запросы*/
+
+body {
+    background-color: blanchedalmond;
+}
+
+.page-container {
+    display: flex;
+    padding: 0.5vw 1.5vw;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.data-block {
+    min-width: 6.7vw;
+    max-width: 6.7vw;
+    min-height: 8.5vw;
+    padding-top: 0px;
+    box-sizing: border-box;
+    border: 2px solid rgb(150, 10, 10);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.data-block.background {
+    background-color: beige;
+}
+
+.item-icon {
+    margin-bottom: 0px;
+    min-width: 6.5vw;
+    max-width: 6.5vw;
+    min-height: 6.5vw;
+    max-height: 6.5vw;
+    z-index: -1;
+}
+
+.text {
+    z-index: -1;
+    min-width: 6.5vw;
+    max-width: 6.5vw;
+    min-height: 3vw;
+    max-height: 3vw;
+    padding-top: 0.15vw;
+    padding-bottom: 0.25vw;
+    padding-right: 0.25vw;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: bold;
+    font-family: sans-serif;
+    background-color: beige;
+    text-align: center;
+}
+
+span {
+    min-width: 6.5vw;
+    max-width: 6.5vw;
+    min-height: 3vw;
+    max-height: 3vw;
+    padding-right: 0.1vw;
+}
+
+.data-block {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    box-sizing: border-box;
+}
