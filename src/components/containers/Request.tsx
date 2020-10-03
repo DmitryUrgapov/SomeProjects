@@ -19,10 +19,10 @@ const requestToAddItems = idUrl => {
                 return dataObj;
             })
             .then(data => {
-                dispatch({ type: 'DATA_RECORDING', value: data });
+                dispatch(dataRecordingMakeAction(data));
             })
             .catch(err => {
-                dispatch({ type: 'DATA_RECORDING', value: { id: '', name: '', icon: '' } });
+                dispatch(dataRecordingMakeAction({ id: '', name: '', icon: '' }));
             }); // обработка ошибки в запросе
     };
 };
