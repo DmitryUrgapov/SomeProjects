@@ -6,7 +6,6 @@ import { dataValueType } from '../dataTypes/dataTypes';
 
 const reducer = (state: { data: object[] } = { data: [] }, action: { type: string; value: dataValueType }) => {
     // редуктор должен быть чистой функцией, поэтому создаём новый объект с помощью spread-оператора
-    let newState = { ...state };
 
     // для каждого типа action меняем данные соответствующим образом
     // здесь при регистрации действия с типом DATA_RECORDING (запись данных)
@@ -14,10 +13,10 @@ const reducer = (state: { data: object[] } = { data: [] }, action: { type: strin
 
     switch (action.type) {
         case 'DATA_RECORDING':
-            newState.data = [...newState.data, { ...action.value }];
+            return { data: [...state.data, { ...action.value }] };
         default:
+            return { ...state };
     }
-    return newState;
 };
 
 export default reducer;

@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 import Request from './components/containers/Request';
 import './style.css';
-
 // осуществляем render контейнерного компонента
 // Provider - WrappedComponent, обновляющийся автоматически при изменениях в store
 
