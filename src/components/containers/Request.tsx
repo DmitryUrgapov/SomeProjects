@@ -19,25 +19,12 @@ const requestToAddItems = idUrl => {
                 return dataObj;
             })
             .then(data => {
-                // вызываем функцию dispatch (пробовал и без таймаута, работало),
-                // инициируем срабатывание редуктора и изменение store
-                // каждый раз, когда store будет меняться, компонент будет обновляться,
-                // передавая обновлённые данные в презентационный компонент,
-                // который отрисовывает их
-                // при обновлениях это компонента не будет повторно
-                // вызываться useEffect и этот цикл
                 dispatch({ type: 'DATA_RECORDING', value: data });
             })
             .catch(err => {
                 dispatch({ type: 'DATA_RECORDING', value: { id: '', name: '', icon: '' } });
             }); // обработка ошибки в запросе
     };
-    // return async dispatch => {
-    //     const response = await fetch(`https://api.guildwars2.com/v2/items/${value && value.id ? value.id : value}`);
-    //     const joke = await response.json();
-    //     console.log('joke in thunk', joke);
-    //     dispatch({ type: 'SET_JOKE', value: joke });
-    // };
 };
 
 const Request = (props: { url: string }) => {
@@ -69,7 +56,7 @@ const Request = (props: { url: string }) => {
                 return res.data.map(i => (i && i.id ? { id: i.id } : i));
             })
             .then(res => {
-                // для каждого id из массива делаем ещё один get-запрос
+                // для каждого id из массива вызываем асинхронный диспатч с get-запросом
                 res.forEach(val => {
                     const idUrl = `https://api.guildwars2.com/v2/items/${val && val.id ? val.id : val}`;
                     dispatch(requestToAddItems(idUrl));
